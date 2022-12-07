@@ -1,6 +1,10 @@
 def create_student(name, level, courses):
     if not courses:
+<<<<<<< HEAD
         courses = [] # fix typo
+=======
+        courses = []
+>>>>>>> 36fc0577e5e79026c3265843938a41718ac4b1ec
 
     return {
         "name": name,
