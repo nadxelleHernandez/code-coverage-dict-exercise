@@ -36,7 +36,7 @@ def test_summary():
 
     assert summary(anne) == "Anne Byron is a senior enrolled in 2 classes"
 
-def test_get_student_with_more_classes():
+def test_get_student_with_more_classes_return_student_b():
     charles = create_student("Charles Babbage", "senior", ["mechanical engineering"])
     ada = create_student(
         "Ada Lovelace",
@@ -45,6 +45,28 @@ def test_get_student_with_more_classes():
     )
 
     # TODO: write assertions
-
+    result = get_student_with_more_classes(charles, ada)
+    assert result == ada
 
 # TODO: Write additional tests to reach 100% test coverage
+def test_init_with_no_courses():
+    name = "Ada Lovelace"
+    level = "sophomore"
+    
+
+    ada = create_student(name, level,courses=None)
+
+    assert ada["name"] == name
+    assert ada["level"] == level
+    assert ada["courses"] == []
+
+def test_get_student_with_more_classes_return_student_a():
+    charles = create_student("Charles Babbage", "senior", ["mechanical engineering"])
+    ada = create_student(
+        "Ada Lovelace",
+        "sophomore",
+        ["mathematics", "foundations of computing"]
+    )
+
+    result = get_student_with_more_classes(ada, charles)
+    assert result == ada
